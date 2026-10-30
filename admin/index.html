@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Scale Up — لوحة التحكم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap">
+<style>
+:root{--ink-0:#0B0A09;--ink-1:#14120F;--ink-2:#1A1715;--line:#2A2724;--line-2:#3A3631;--paper:#F3EFE8;--muted:#A39E95;--accent:#FF4A2B;--ok:#3FB37F;
+  --body:"IBM Plex Sans Arabic",Tahoma,system-ui,sans-serif;--latin:"Manrope","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{background:var(--ink-0);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.7;min-height:100vh;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:40px 16px 80px}
+.brand{font-family:var(--latin);font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px;margin-bottom:32px}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block}
+.brand span{color:var(--muted);font-family:var(--body);font-weight:500;font-size:14px}
+h1{font-size:28px;line-height:1.3;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:28px}
+.card{background:var(--ink-1);border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:18px}
+.card h2{font-size:18px;margin-bottom:4px}
+.card .hint{color:var(--muted);font-size:14px;margin-bottom:16px}
+label{display:block;font-size:14px;color:var(--muted);margin:14px 0 6px}
+input[type=text],input[type=password],input[type=url]{width:100%;background:var(--ink-2);border:1px solid var(--line-2);color:var(--paper);border-radius:12px;padding:12px 14px;font:inherit;outline:none}
+input:focus{border-color:var(--accent)}
+input[type=url]{direction:ltr;text-align:left;font-family:var(--latin);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer;background:var(--accent);color:#fff;transition:opacity .2s,transform .1s}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--line-2)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.msg{font-size:14px;margin-top:12px;min-height:1.7em}
+.msg.err{color:#FF8A73}.msg.ok{color:var(--ok)}
+.preview{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.preview iframe,.preview video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.preview .empty{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:14px}
+.now{font-size:13px;color:var(--muted);margin-top:10px;direction:ltr;text-align:right;font-family:var(--latin);word-break:break-all}
+.drop{border:1.5px dashed var(--line-2);border-radius:16px;padding:28px 16px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.drop b{display:block;font-size:17px;margin-bottom:2px}
+.drop small{color:var(--muted)}
+.file{margin-top:12px;font-size:14px;color:var(--muted)}
+.bar{height:8px;background:var(--ink-2);border-radius:99px;overflow:hidden;margin-top:14px}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;margin:20px 0 4px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:var(--ink-2);color:var(--paper);font-size:22px;cursor:pointer}
+.stepper output{direction:ltr;font-family:var(--latin);font-size:28px;font-weight:700;min-width:90px;text-align:center}
+.dots{display:flex;gap:6px;margin-top:10px}
+.dots i{width:28px;height:6px;border-radius:9px;background:var(--line-2)}
+.dots i.on{background:var(--accent)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+a{color:var(--accent)}
+a.btn{text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><i></i>Scale Up <span>· لوحة التحكم</span></div>
+
+  <!-- login -->
+  <section id="login">
+    <h1>أهلاً يا زياد</h1>
+    <p class="sub">اكتب الباسورد اللي وصلك على الإيميل.</p>
+    <div class="card">
+      <form id="loginForm">
+        <label for="pass">الباسورد</label>
+        <input type="password" id="pass" autocomplete="current-password" required>
+        <div class="row"><button class="btn" id="loginBtn">ادخل</button></div>
+        <p class="msg err" id="loginMsg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- panel -->
+  <section id="panel" hidden>
+    <div class="top">
+      <div><h1>الموقع</h1><p class="sub">أي حاجة تغيّرها هنا بتظهر على الموقع فوراً.</p></div>
+      <div class="row" style="margin:0"><a class="btn ghost" href="/" target="_blank" rel="noopener">افتح الموقع</a><button class="btn ghost" id="logout">اخرج</button></div>
+    </div>
+
+    <div class="card">
+      <h2>الفيديو اللي على الموقع دلوقتي</h2>
+      <p class="hint">ده اللي الزوار بيشوفوه في قسم «اتفرّج قبل ما تحجز».</p>
+      <div class="preview" id="preview"><div class="empty">…</div></div>
+      <p class="now" id="nowSrc"></p>
+    </div>
+
+    <div class="card">
+      <h2>غيّر الفيديو</h2>
+      <p class="hint">ارفع الملف من جهازك (بيتحفظ في جوجل درايف بتاعك)، أو حط لينك يوتيوب.</p>
+
+      <input type="file" id="file" accept="video/*" hidden>
+      <div class="drop" id="drop" tabindex="0" role="button">
+        <b>اختار الفيديو أو اسحبه هنا</b>
+        <small>MP4 · لحد 2 جيجا</small>
+      </div>
+      <p class="file" id="fileInfo" hidden></p>
+      <div class="bar" id="bar" hidden><i></i></div>
+      <div class="row"><button class="btn" id="uploadBtn" disabled>ارفع وحطه على الموقع</button><button class="btn ghost" id="cancelBtn" hidden>وقّف</button></div>
+      <p class="msg" id="uploadMsg"></p>
+
+      <div class="or">أو</div>
+      <label for="link">لينك يوتيوب (Unlisted) أو جوجل درايف أو mp4</label>
+      <input type="url" id="link" placeholder="https://youtu.be/…">
+      <div class="row"><button class="btn" id="linkBtn">حط اللينك على الموقع</button><button class="btn ghost" id="resetBtn">ارجع للفيديو الأصلي</button></div>
+      <p class="msg" id="linkMsg"></p>
+    </div>
+
+    <div class="card">
+      <h2>الكلام اللي تحت الفيديو</h2>
+      <label for="caption">مثلاً: فيديو الشرح · دقيقتين</label>
+      <input type="text" id="caption" maxlength="80">
+      <div class="row"><button class="btn" id="capBtn">احفظ</button></div>
+      <p class="msg" id="capMsg"></p>
+    </div>
+
+    <div class="card">
+      <h2>الأماكن المحجوزة</h2>
+      <p class="hint">العداد اللي على الموقع: «فاضل كذا مكان».</p>
+      <div class="stepper">
+        <button type="button" id="minus" aria-label="أقل">−</button>
+        <output id="taken">0 / 5</output>
+        <button type="button" id="plus" aria-label="أكتر">+</button>
+      </div>
+      <div class="dots" id="dots"></div>
+      <div class="row"><button class="btn" id="takenBtn">احفظ</button></div>
+      <p class="msg" id="takenMsg"></p>
+    </div>
+  </section>
+
+  <section id="nocfg" hidden>
+    <h1>لسه مش متوصّل</h1>
+    <p class="sub">حط لينك الـ Apps Script في ملف <b>config.js</b> (اللي جنب index.html) وارفعه تاني على GitHub. بعدها اللوحة هتشتغل.</p>
+  </section>
+</div>
+
+<script src="../config.js"></script>
+<script>
+const API = (window.SCALEUP && window.SCALEUP.API_URL) || "";
+const $ = s => document.querySelector(s);
+const CHUNK = 5 * 1024 * 1024; // must stay a multiple of 256 KB
+const ERR = {
+  wrong_pass: "الباسورد غلط.", locked: "محاولات كتير غلط. استنى ربع ساعة.", bad_link: "اللينك ده مش مفهوم. جرّب لينك يوتيوب أو درايف أو mp4.",
+  bad_taken: "رقم مش مظبوط.", upload_expired: "الرفع وقف كتير. ابدأ من الأول.", bad_size: "الملف كبير أوي (الحد 2 جيجا).",
+  net: "مفيش نت أو السيرفر مش بيرد. جرّب تاني.",
+};
+const err = e => ERR[e] || ("حصلت مشكلة (" + e + ").");
+
+let PASS = "", STATE = null;
+try { PASS = sessionStorage.getItem("su_admin") || ""; } catch (e) {}
+
+async function call(action, data = {}) {
+  try {
+    const r = await fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ action, pass: PASS, ...data }) });
+    return await r.json();
+  } catch (e) { return { ok: false, error: "net" }; }
+}
+function say(el, text, ok) { el.textContent = text; el.className = "msg " + (ok ? "ok" : "err"); }
+
+/* ---------- login ---------- */
+async function login() {
+  $("#loginBtn").disabled = true;
+  const j = await call("admin_login");
+  $("#loginBtn").disabled = false;
+  if (!j.ok) { PASS = ""; try { sessionStorage.removeItem("su_admin"); } catch (e) {} if ($("#pass").value) say($("#loginMsg"), err(j.error)); return; }
+  try { sessionStorage.setItem("su_admin", PASS); } catch (e) {}
+  STATE = j;
+  $("#login").hidden = true; $("#panel").hidden = false;
+  showVideo(j.vsl); $("#caption").value = j.caption || ""; setTaken(j.taken);
+}
+$("#loginForm").addEventListener("submit", e => { e.preventDefault(); PASS = $("#pass").value.trim(); login(); });
+$("#logout").addEventListener("click", () => { try { sessionStorage.removeItem("su_admin"); } catch (e) {} location.reload(); });
+
+/* ---------- current video ---------- */
+function showVideo(v) {
+  const box = $("#preview"); let el;
+  if (!v) { el = document.createElement("video"); el.src = "../vsl.mp4"; el.controls = true; el.preload = "metadata"; $("#nowSrc").textContent = "الفيديو الأصلي (vsl.mp4)"; }
+  else if (v.startsWith("yt:")) { el = document.createElement("iframe"); el.src = "https://www.youtube-nocookie.com/embed/" + v.slice(3); $("#nowSrc").textContent = "YouTube · " + v.slice(3); }
+  else if (v.startsWith("drive:")) { el = document.createElement("iframe"); el.src = "https://drive.google.com/file/d/" + v.slice(6) + "/preview"; $("#nowSrc").textContent = "Google Drive · " + v.slice(6); }
+  else { el = document.createElement("video"); el.src = v; el.controls = true; el.preload = "metadata"; $("#nowSrc").textContent = v; }
+  if (el.tagName === "IFRAME") { el.allow = "fullscreen; picture-in-picture"; el.allowFullscreen = true; }
+  box.replaceChildren(el);
+}
+
+/* ---------- upload a file (to your Google Drive, 5 MB at a time) ---------- */
+let FILE = null, CANCEL = false;
+const pick = f => {
+  if (!f) return;
+  if (!/^video\//.test(f.type) && !/\.(mp4|mov|webm|m4v)$/i.test(f.name)) { say($("#uploadMsg"), "ده مش ملف فيديو."); return; }
+  FILE = f; $("#fileInfo").hidden = false;
+  $("#fileInfo").textContent = f.name + " · " + (f.size / 1048576).toFixed(0) + " MB";
+  $("#uploadBtn").disabled = false; $("#uploadMsg").textContent = "";
+};
+$("#drop").addEventListener("click", () => $("#file").click());
+$("#drop").addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("#file").click(); } });
+$("#file").addEventListener("change", e => pick(e.target.files[0]));
+["dragenter", "dragover"].forEach(t => $("#drop").addEventListener(t, e => { e.preventDefault(); $("#drop").classList.add("over"); }));
+["dragleave", "drop"].forEach(t => $("#drop").addEventListener(t, e => { e.preventDefault(); $("#drop").classList.remove("over"); }));
+$("#drop").addEventListener("drop", e => pick(e.dataTransfer.files[0]));
+$("#cancelBtn").addEventListener("click", () => { CANCEL = true; });
+
+const b64 = blob => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(",")[1]); r.onerror = rej; r.readAsDataURL(blob); });
+
+$("#uploadBtn").addEventListener("click", async () => {
+  if (!FILE) return;
+  const msg = $("#uploadMsg"), bar = $("#bar"), fill = bar.querySelector("i");
+  CANCEL = false; $("#uploadBtn").disabled = true; $("#cancelBtn").hidden = false; bar.hidden = false; fill.style.width = "0";
+  window.onbeforeunload = () => "الرفع لسه شغال";
+  try {
+    say(msg, "بنجهّز الرفع…", true);
+    const s = await call("admin_upload_start", { name: FILE.name, size: FILE.size, mime: FILE.type || "video/mp4" });
+    if (!s.ok) throw s.error;
+    for (let off = 0; off < FILE.size; off += CHUNK) {
+      if (CANCEL) throw "cancel";
+      const data = await b64(FILE.slice(off, off + CHUNK));
+      let j, tries = 0;
+      do { j = await call("admin_upload_chunk", { id: s.id, offset: off, data }); } while (!j.ok && j.error === "net" && ++tries < 4);
+      if (!j.ok) throw j.error;
+      const pct = Math.min(100, Math.round((off + CHUNK) / FILE.size * 100));
+      fill.style.width = pct + "%"; say(msg, "بيترفع… " + pct + "%", true);
+      if (j.done) {
+        say(msg, "تمام ✓ الفيديو الجديد اتحط على الموقع. جوجل درايف بياخد كام دقيقة يجهّزه للعرض أول مرة.", true);
+        showVideo(j.vsl); FILE = null; $("#fileInfo").hidden = true; $("#file").value = "";
+        return;
+      }
+    }
+    throw "drive_incomplete";
+  } catch (e) {
+    say(msg, e === "cancel" ? "الرفع اتوقف. الفيديو القديم لسه زي ما هو." : err(e));
+    $("#uploadBtn").disabled = !FILE;
+  } finally {
+    $("#cancelBtn").hidden = true; window.onbeforeunload = null;
+  }
+});
+
+/* ---------- link ---------- */
+async function saveVsl(v, msgEl, okText) {
+  const j = await call("admin_save", { vsl: v });
+  if (!j.ok) return say(msgEl, err(j.error));
+  showVideo(j.vsl); say(msgEl, okText, true);
+}
+$("#linkBtn").addEventListener("click", () => { const v = $("#link").value.trim(); if (!v) return say($("#linkMsg"), "حط اللينك الأول."); saveVsl(v, $("#linkMsg"), "تمام ✓ اللينك اتحط على الموقع."); });
+$("#resetBtn").addEventListener("click", () => saveVsl("", $("#linkMsg"), "تمام ✓ رجعنا للفيديو الأصلي."));
+
+/* ---------- caption ---------- */
+$("#capBtn").addEventListener("click", async () => {
+  const j = await call("admin_save", { caption: $("#caption").value.trim() });
+  j.ok ? say($("#capMsg"), "اتحفظ ✓", true) : say($("#capMsg"), err(j.error));
+});
+
+/* ---------- places taken ---------- */
+let TAKEN = 0;
+function setTaken(n) {
+  const total = (STATE && STATE.total) || 5;
+  TAKEN = Math.max(0, Math.min(total, n));
+  $("#taken").textContent = TAKEN + " / " + total;
+  $("#dots").replaceChildren(...Array.from({ length: total }, (_, i) => { const d = document.createElement("i"); if (i < TAKEN) d.className = "on"; return d; }));
+}
+$("#minus").addEventListener("click", () => setTaken(TAKEN - 1));
+$("#plus").addEventListener("click", () => setTaken(TAKEN + 1));
+$("#takenBtn").addEventListener("click", async () => {
+  const j = await call("admin_save", { taken: TAKEN });
+  j.ok ? say($("#takenMsg"), "اتحفظ ✓ الموقع دلوقتي بيقول: فاضل " + (((STATE && STATE.total) || 5) - TAKEN) + " أماكن.", true) : say($("#takenMsg"), err(j.error));
+});
+
+/* ---------- start ---------- */
+if (!API) { $("#login").hidden = true; $("#nocfg").hidden = false; }
+else if (PASS) login();
+</script>
+</body>
+</html>
