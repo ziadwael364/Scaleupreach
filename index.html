@@ -501,10 +501,25 @@ footer .latin{font-family:var(--latin)}
               <option value="+973">+973 البحرين</option>
               <option value="+968">+968 عُمان</option>
               <option value="+20">+20 مصر</option>
+              <option value="+962">+962 الأردن</option>
+              <option value="+961">+961 لبنان</option>
+              <option value="+964">+964 العراق</option>
+              <option value="+963">+963 سوريا</option>
+              <option value="+970">+970 فلسطين</option>
+              <option value="+967">+967 اليمن</option>
+              <option value="+218">+218 ليبيا</option>
+              <option value="+216">+216 تونس</option>
+              <option value="+213">+213 الجزائر</option>
+              <option value="+212">+212 المغرب</option>
+              <option value="+249">+249 السودان</option>
+              <option value="+222">+222 موريتانيا</option>
+              <option value="+252">+252 الصومال</option>
+              <option value="+253">+253 جيبوتي</option>
+              <option value="+269">+269 جزر القمر</option>
             </select>
             <input id="f-phone" name="phone" inputmode="tel" autocomplete="tel-national" required>
           </div><span class="err"></span></div>
-        <div class="field full"><label for="f-channel">لينك القناة أو الحساب الأساسي</label><input id="f-channel" name="channel" type="url" placeholder="https://youtube.com/@..." required dir="ltr"><span class="err"></span></div>
+        <div class="field full"><label for="f-channel">لينك القناة أو الحساب الأساسي</label><input id="f-channel" name="channel" type="text" placeholder="youtube.com/@..." required dir="ltr"><span class="err"></span></div>
         <div class="field full"><label for="f-videos">لينكات أحسن 2–3 فيديوهات ليك</label><textarea id="f-videos" name="videos" dir="ltr" placeholder="لينك في كل سطر" required></textarea><span class="err"></span></div>
         <div style="position:absolute;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label for="f-hp">Website</label><input id="f-hp" name="company_website" tabindex="-1" autocomplete="off"></div>
         <div class="field full"><label for="f-socials">حساباتك على تيك توك وإنستجرام (لو موجودة)</label><input id="f-socials" name="socials" dir="ltr" placeholder="@..."><span class="err"></span></div>
@@ -709,7 +724,7 @@ function v1() {
   ok &= setErr(name, name.value.trim().length < 2 ? "اكتب اسمك" : "");
   const digits = phone.value.replace(/\D/g, "");
   ok &= setErr(phone, digits.length < 7 || digits.length > 12 ? "اكتب رقم الواتساب من غير كود الدولة" : "");
-  ok &= setErr(ch, !isUrl(ch.value) ? "حط لينك القناة كامل (بيبدأ بـ https://)" : "");
+  ok &= setErr(ch, ch.value.trim().length < 2 ? "حط لينك القناة أو اسم الحساب" : "");
   const links = vids.value.split(/\s+/).filter(isUrl);
   ok &= setErr(vids, links.length < 1 ? "حط لينك فيديو واحد على الأقل" : "");
   return !!ok;
