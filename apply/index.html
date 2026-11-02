@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scale Up — قدّم على الشهر المجاني</title>
+<meta name="description" content="هنشتغل مع صانع محتوى واحد بس مجانًا لمدة شهر: أكتر من 60 مقطع قصير من حلقاتك الطويلة.">
+<meta property="og:title" content="Scale Up — شهر توزيع مجاني لصانع محتوى واحد">
+<meta property="og:description" content="التقديم مفتوح لحد 9 نوفمبر.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@700&display=swap">
+<style>
+:root{--ink-0:#0B0A09;--ink-1:#14120F;--ink-2:#1A1715;--line:#2A2724;--line-2:#3A3631;--paper:#F3EFE8;--muted:#A39E95;--muted-2:#C9C4BB;--accent:#FF4A2B;--ok:#3FB37F}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{background:var(--ink-0);color:var(--paper);font-family:"IBM Plex Sans Arabic",Tahoma,system-ui,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:40px 16px 80px}
+.brand{font-family:Manrope,sans-serif;font-weight:700;display:inline-flex;align-items:center;gap:10px;color:var(--paper);text-decoration:none;margin-bottom:36px}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.k{color:var(--accent);font-weight:600;font-size:15px}
+h1{font-family:Amiri,serif;font-size:clamp(34px,7vw,52px);line-height:1.25;margin:8px 0 16px}
+.lead{color:var(--muted-2);font-size:18px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0}
+.facts div{border:1px solid var(--line-2);border-radius:16px;padding:16px;text-align:center}
+.facts b{display:block;font-family:Manrope,sans-serif;font-size:26px;color:var(--accent)}
+.facts span{font-size:14px;color:var(--muted)}
+.card{background:var(--ink-1);border:1px solid var(--line);border-radius:22px;padding:24px;margin-top:8px}
+label{display:block;font-size:15px;color:var(--muted-2);margin:18px 0 6px}
+input,select,textarea{width:100%;background:var(--ink-2);border:1px solid var(--line-2);color:var(--paper);border-radius:12px;padding:12px 14px;font:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+.ltr{direction:ltr;text-align:left}
+.phone{display:flex;gap:8px}.phone select{width:auto;flex:none}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{margin:0;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);border-radius:999px;padding:8px 14px;cursor:pointer;color:var(--paper)}
+.opts input{width:auto;accent-color:var(--accent)}
+.btn{margin-top:24px;width:100%;border:0;border-radius:999px;padding:16px;font:inherit;font-weight:700;font-size:18px;background:var(--accent);color:#fff;cursor:pointer}
+.btn:disabled{opacity:.5}
+.err{color:#FF8A73;font-size:14px;min-height:1.4em;margin-top:8px}
+.rules{margin-top:28px;color:var(--muted);font-size:15px}
+.rules li{margin-bottom:6px}
+.done{text-align:center;padding:40px 8px}
+.done h2{font-family:Amiri,serif;font-size:36px;margin-bottom:12px}
+.closed{border:1px solid var(--line-2);border-radius:16px;padding:20px;text-align:center;color:var(--muted-2)}
+@media (max-width:520px){.facts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="/"><i></i>Scale Up</a>
+  <div class="k">تقديم · مفتوح لحد 9 نوفمبر</div>
+  <h1>هنشتغل مع صانع محتوى واحد بس… مجانًا لمدة شهر.</h1>
+  <p class="lead">إنت بتصوّر حلقات طويلة؟ بودكاست أو يوتيوب؟ هنطلّع منها أكتر من 60 مقطع قصير، وننزّلهم كل يوم على صفحات باسمك. مش هناخد غير واحد.</p>
+  <div class="facts">
+    <div><b>60+</b><span>مقطع قصير</span></div>
+    <div><b>30</b><span>يوم نشر كل يوم</span></div>
+    <div><b>$0</b><span>للفائز</span></div>
+  </div>
+
+  <div id="closed" class="closed" hidden>التقديم اتقفل. لو عايز تشتغل معانا، <a href="/#book" style="color:var(--accent)">احجز مكالمة من هنا</a>.</div>
+
+  <form class="card" id="f" novalidate>
+    <label for="name">اسمك</label>
+    <input id="name" autocomplete="name" required>
+    <label for="phone">رقم الواتساب</label>
+    <div class="phone">
+      <select id="cc" aria-label="كود الدولة">
+        <option>+966</option><option>+971</option><option>+965</option><option>+974</option><option>+973</option><option>+968</option><option>+20</option><option>+962</option><option>+961</option><option>+964</option><option>+963</option><option>+970</option><option>+967</option><option>+218</option><option>+216</option><option>+213</option><option>+212</option><option>+249</option><option>+222</option><option>+252</option><option>+253</option><option>+269</option>
+      </select>
+      <input id="phone" class="ltr" inputmode="tel" autocomplete="tel-national" required>
+    </div>
+    <label for="channel">لينك قناتك أو البودكاست</label>
+    <input id="channel" class="ltr" placeholder="youtube.com/@..." required>
+    <label>كل قد إيه بتنزّل حلقة أو فيديو طويل؟</label>
+    <div class="opts" id="freq">
+      <label><input type="radio" name="freq" value="كل أسبوع">كل أسبوع</label>
+      <label><input type="radio" name="freq" value="كل أسبوعين">كل أسبوعين</label>
+      <label><input type="radio" name="freq" value="مرة في الشهر">مرة في الشهر</label>
+      <label><input type="radio" name="freq" value="لسه هبدأ">لسه هبدأ</label>
+    </div>
+    <label>بتبيع إيه؟</label>
+    <div class="opts" id="sell">
+      <label><input type="radio" name="sell" value="كورس">كورس</label>
+      <label><input type="radio" name="sell" value="كوتشينج">كوتشينج</label>
+      <label><input type="radio" name="sell" value="خدمة">خدمة</label>
+      <label><input type="radio" name="sell" value="منتج">منتج</label>
+      <label><input type="radio" name="sell" value="لسه مش ببيع">لسه مش ببيع</label>
+    </div>
+    <label>عايز إيه أكتر حاجة؟</label>
+    <div class="opts" id="goal">
+      <label><input type="radio" name="goal" value="عملاء جداد">عملاء جداد</label>
+      <label><input type="radio" name="goal" value="متابعين أكتر">متابعين أكتر</label>
+      <label><input type="radio" name="goal" value="مبيعات كورس">مبيعات كورس</label>
+    </div>
+    <label for="ref">مين رشّحلك؟ (اختياري)</label>
+    <input id="ref">
+    <div style="position:absolute;left:-9999px" aria-hidden="true"><input id="hp" tabindex="-1" autocomplete="off"></div>
+    <button class="btn" id="go">قدّم دلوقتي</button>
+    <p class="err" id="err"></p>
+  </form>
+
+  <div class="card done" id="done" hidden>
+    <h2>وصلنا طلبك ✓</h2>
+    <p class="lead">هنعلن الفائز يوم 10 نوفمبر. وكل اللي قدّموا هنكلّمهم على الواتساب بعرض خاص للمؤسسين.</p>
+  </div>
+
+  <ol class="rules">
+    <li>التقديم مفتوح لحد 9 نوفمبر، والفائز بيتعلن يوم 10.</li>
+    <li>مناسب لصنّاع المحتوى العرب اللي بينزّلوا فيديو طويل أو حلقة على الأقل كل أسبوع.</li>
+    <li>الفائز بيوافق إنه يشاركنا الأرقام ويسجّل رأيه في فيديو قصير.</li>
+    <li>لو حد رشّحته كسب، إنت كمان بتاخد أسبوعين مجانًا.</li>
+  </ol>
+</div>
+
+<script src="../config.js"></script>
+<script>
+const API = (window.SCALEUP && window.SCALEUP.API_URL) || "";
+const $ = s => document.querySelector(s);
+const DEADLINE = new Date("2026-11-10T00:00:00+03:00");
+if (Date.now() >= DEADLINE) { $("#f").hidden = true; $("#closed").hidden = false; }
+const pick = n => (document.querySelector(`input[name=${n}]:checked`) || {}).value || "";
+const src = new URLSearchParams(location.search).get("src") || "";
+if (API) { try { const k = "su_va_" + new Date().toISOString().slice(0, 10); if (!localStorage.getItem(k)) { localStorage.setItem(k, "1"); fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ action: "visit", src: src || "direct", page: "apply" }) }).catch(() => {}); } } catch (e) {} }
+$("#f").addEventListener("submit", async e => {
+  e.preventDefault();
+  const d = { action: "apply", name: $("#name").value.trim(), phone: $("#cc").value + " " + $("#phone").value.replace(/\D/g, ""),
+    channel: $("#channel").value.trim(), freq: pick("freq"), sell: pick("sell"), goal: pick("goal"), ref: $("#ref").value.trim(), src, company_website: $("#hp").value };
+  const digits = $("#phone").value.replace(/\D/g, "");
+  const bad = d.name.length < 2 ? "اكتب اسمك" : (digits.length < 7 || digits.length > 12) ? "اكتب رقم الواتساب من غير كود الدولة" : d.channel.length < 2 ? "حط لينك قناتك" : !d.freq || !d.sell || !d.goal ? "جاوب على الأسئلة الـ3" : "";
+  if (bad) { $("#err").textContent = bad; return; }
+  $("#err").textContent = ""; $("#go").disabled = true; $("#go").textContent = "بنبعت…";
+  try {
+    if (API) { const r = await fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(d) }); const j = await r.json(); if (!j.ok) throw j.error; }
+    $("#f").hidden = true; $("#done").hidden = false;
+  } catch (er) {
+    $("#err").textContent = er === "too_many" ? "إنت قدّمت قبل كده ✓" : "حصلت مشكلة في الاتصال. جرّب تاني.";
+    $("#go").disabled = false; $("#go").textContent = "قدّم دلوقتي";
+  }
+});
+</script>
+</body>
+</html>
