@@ -163,6 +163,21 @@ p{margin:0}
 .fit-col.no li::before{content:"✕"}
 
 /* book */
+.offer .wrap{display:flex;flex-direction:column;gap:48px}
+.offer-name{font-family:var(--display);font-weight:700;font-size:clamp(34px,4.6vw,60px);line-height:1.25;max-width:22ch}
+.guar{border:1px solid var(--accent);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:10px;background:var(--accent-deep)}
+.guar b{font-size:22px}.guar p{color:var(--muted-2);font-size:17px}
+.bonus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bonus{border:1px solid var(--line-2);border-radius:20px;padding:24px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.bonus span{font-size:18px}.bonus em{font-style:normal;font-family:var(--latin);font-weight:700;color:var(--accent);white-space:nowrap}
+.bonus.f{border-style:dashed}
+.faq .wrap{display:flex;flex-direction:column;gap:32px;max-width:860px}
+.faq details{border-top:1px solid var(--line);padding-block:22px}
+.faq summary{cursor:pointer;font-size:20px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--accent);font-family:var(--latin)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin-top:12px;color:var(--muted-2);font-size:17px}
+@media (max-width:760px){.bonus-grid{grid-template-columns:1fr}}
 .book .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;padding-block:clamp(88px,12vw,160px)}
 .book h2{font-family:var(--display);font-weight:700;font-size:clamp(44px,6vw,84px);line-height:1.2}
 .book p{max-width:640px;font-size:20px;color:var(--muted-2)}
@@ -425,6 +440,24 @@ footer .latin{font-family:var(--latin)}
     </div>
   </section>
 
+  <section class="band dark offer" id="offer" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <span class="kicker">العرض</span>
+      <h2 class="offer-name">«برنامج الـ90»: 90 مقطع في 30 يوم من حلقاتك الطويلة.</h2>
+      <div class="guar">
+        <b>الضمان: لو ما نزّلناش 90 مقطع في 30 يوم، الشهر ده عليك مجانًا.</b>
+        <p>كل اللي عليك: تبعتلنا 4 حلقات (أو 4 ساعات فيديو) في الشهر، وتوافق على المقاطع خلال 24 ساعة.</p>
+      </div>
+      <div class="bonus-grid">
+        <div class="bonus"><span>مكتبة 50 هوك خليجي مجرّب</span><em>$300</em></div>
+        <div class="bonus"><span>تجهيز الـ3 صفحات كاملة (بايو، صورة، لينك عرضك)</span><em>$200</em></div>
+        <div class="bonus"><span>خريطة مقاطع كل شهر: أقوى 10 لحظات في كل حلقة</span><em>$150</em></div>
+        <div class="bonus"><span>تعليق مثبّت ولينك بيودّي المشاهد لعرضك المدفوع</span><em>$200</em></div>
+        <div class="bonus f"><span>للمؤسسين بس: 5 مقاطع بتعديل احترافي زيادة في أول شهر</span><em>$150</em></div>
+      </div>
+    </div>
+  </section>
+
   <section class="band dark fit" id="fit">
     <div class="wrap">
       <h2 class="h2">إحنا مش لكل الناس.</h2>
@@ -442,21 +475,34 @@ footer .latin{font-family:var(--latin)}
           <ul>
             <li>لسه مبتصوّرش أي حاجة</li>
             <li>مستني نتيجة في أسبوع</li>
-            <li>عايز تتحكّم في كل مقطع قبل ما ينزل</li>
+            <li>مش هتقدر تبعتلنا حلقة كل أسبوع</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="band dark faq" id="faq" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <span class="kicker">أسئلة بتتسأل كتير</span>
+      <details><summary>الصفحات هتبقى باسم مين؟</summary><p>باسمك إنت، والدخول معاك. ولو وقفنا الشغل في أي وقت، بتاخد كل حاجة زي ما هي.</p></details>
+      <details><summary>إيه المطلوب مني؟</summary><p>تبعتلنا لينك الحلقة بس. إحنا بنختار اللحظات، ونقطّع، ونكتب الكابشن، وننشر كل يوم.</p></details>
+      <details><summary>هل أقدر أرفض مقطع؟</summary><p>أكيد. كل مقطع بيعدّي عليك قبل ما ينزل، وعندك 24 ساعة ترفض أي حاجة مش عاجباك.</p></details>
+      <details><summary>إمتى أشوف أول مقطع؟</summary><p>خلال 72 ساعة من أول حلقة تبعتها.</p></details>
+      <details><summary>بتشتغلوا باللهجة الخليجية؟</summary><p>أيوه. الكابشن والهوكات بنفس لهجتك ولهجة جمهورك.</p></details>
+      <details><summary>ولو مش عاجبني بعد شهر؟</summary><p>تقدر توقف في أي وقت بإشعار 15 يوم. ولو ما نزّلناش الـ90 مقطع، الشهر ده مجانًا.</p></details>
+    </div>
+  </section>
+
   <section class="book dark" id="book" style="border-top:1px solid var(--line)">
     <div class="wrap">
-      <span class="kicker">بالدعوة فقط</span>
+      <span class="kicker">أماكن المؤسسين</span>
       <h2>بناخد 5 عملاء بس في نفس الوقت.</h2>
+      <p style="color:var(--paper);font-weight:700">السعر المؤسس لأول 5 بس، وبينتهي لما الأماكن تتملي أو يوم 15 ديسمبر. الدفعة الجاية بتبدأ <span id="nextStart">يوم 15</span>.</p>
       <p>احجز مكانك. هتملا بيانات بسيطة عن قناتك وأهم فيديوهاتك… وبعدها مكالمة قصيرة نتأكد فيها إنك مناسب، ونتفق على كل حاجة، ونبدأ على طول. ولو مش مناسبين لبعض، هنقولك بصراحة.</p>
       <div class="slots">
         <div class="slot-row" id="slotRow" aria-hidden="true"></div>
-        <strong id="slotText">فاضل 3 أماكن من 5</strong>
+        <strong id="slotText">فاضل 5 أماكن من 5</strong>
         <small>أول ما يكمّلوا بنقفل الحجز… واللي بعدهم بيستنّى لحد ما مكان يفضى.</small>
       </div>
       <button class="btn" type="button" data-book>احجز مكانك دلوقتي</button>
@@ -473,7 +519,7 @@ footer .latin{font-family:var(--latin)}
 </footer>
 
 <div class="mbar" id="mbar">
-  <small id="mbarText">فاضل 3 أماكن من 5</small>
+  <small id="mbarText">فاضل 5 أماكن من 5</small>
   <button class="btn" type="button" data-book>احجز مكانك</button>
 </div>
 
@@ -594,7 +640,7 @@ footer .latin{font-family:var(--latin)}
 /* ===== CONFIG — edit these ===== */
 const CONFIG = {
   SLOTS_TOTAL: 5,
-  SLOTS_TAKEN: 2,          // TODO: keep this true — update when a client signs or leaves
+  SLOTS_TAKEN: 0,          // the real number — change it from /admin when a client signs or leaves
   VSL_SRC: "vsl.mp4",      // built-in video. Change it any time from scaleupreach.com/admin (no code).
   VSL_CAPTION: "فيديو الشرح · دقيقتين",
   API_URL: (window.SCALEUP && window.SCALEUP.API_URL) || "", // set once in config.js. Empty = test mode.
@@ -636,6 +682,16 @@ async function loadState() {
   } catch (e) { /* keep defaults */ }
 }
 loadState();
+
+/* next onboarding date: the 1st or the 15th */
+(() => { const d = new Date(), m = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+  let day = d.getDate() < 15 ? 15 : 1, mo = d.getDate() < 15 ? d.getMonth() : (d.getMonth() + 1) % 12;
+  const el = $("#nextStart"); if (el) el.textContent = `يوم ${day} ${m[mo]}`; })();
+
+/* visit counter (one per browser per day), with ?src= from the outreach links */
+(() => { if (!CONFIG.API_URL) return; try { const k = "su_v_" + new Date().toISOString().slice(0, 10); if (localStorage.getItem(k)) return; localStorage.setItem(k, "1"); } catch (e) {}
+  const src = new URLSearchParams(location.search).get("src") || (document.referrer ? new URL(document.referrer).hostname : "direct");
+  fetch(CONFIG.API_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ action: "visit", src: src.slice(0, 40), page: "home" }) }).catch(() => {}); })();
 
 /* time zones: "this day at this hour in that city" → exact UTC instant */
 function tzOffsetMs(tz, utcMs) {
